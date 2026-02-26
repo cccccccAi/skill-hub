@@ -13,9 +13,11 @@
 ```
 skill-hub/
 ├── .claude/skills/              # 所有技能定义
+│   ├── learn/                   # 核心：闯关式交互教学（/learn）
+│   ├── build-course/            # 课程生成器（/build-course）
 │   ├── interview-write/         # 教学案例：单人访谈写作（/interview-write）
-│   ├── interview-write-team/    # 教学案例：团队对抗写作（/interview-write-team）
-│   └── learn/                   # 核心：闯关式交互教学（/learn）
+│   └── interview-write-team/    # 教学案例：团队对抗写作（/interview-write-team）
+├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
 ├── writing/                     # 写作工作空间
 │   ├── examples/                # 风格参考文章（可替换为你自己的）
 │   ├── drafts/                  # 中间产物（不入 git）

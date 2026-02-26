@@ -42,6 +42,7 @@ skill-hub/
 │   ├── build-course/            # 课程生成器（自动设计+生成闯关课程）
 │   ├── interview-write/         # 教学案例：单人访谈写作
 │   └── interview-write-team/    # 教学案例：团队对抗写作
+├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
 ├── templates/                   # Skill 模板骨架
 │   ├── basic/                   # 最简模板（~15行）
 │   └── standard/                # 标准模板（~35行）

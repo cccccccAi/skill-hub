@@ -15,9 +15,11 @@
 
 ### Windows
 
-1. **先安装 Windows Terminal**：解压 `tools/windows/WindowsTerminal-v1.23-x64.zip`（64位系统）或 `WindowsTerminal-v1.23-x86.zip`（32位系统），运行里面的安装程序。也可从 Microsoft Store 搜索 "Windows Terminal" 安装
+1. **先安装 Windows Terminal**：打开 Microsoft Store，搜索 "Windows Terminal"，点击安装。如果无法访问 Microsoft Store，可使用项目中预置的安装包（见下方说明）
 2. 打开 CodeBuddy（https://www.codebuddy.cn/）
 3. 按 `Ctrl + ~` 打开终端，确认终端类型是 **PowerShell**（不是 CMD）
+
+> **备选方案：** 如果 Microsoft Store 不可用，在 CodeBuddy 中打开项目后，找到 `tools/windows/WindowsTerminal-v1.23-x64.zip`（64位系统）或 `WindowsTerminal-v1.23-x86.zip`（32位系统），解压后直接运行 `WindowsTerminal.exe` 即可使用。
 
 > Windows 用户注意：如果 CodeBuddy 终端默认不是 PowerShell，点击终端右上角的下拉箭头切换。
 
