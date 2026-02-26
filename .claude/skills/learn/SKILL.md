@@ -98,10 +98,11 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 详细内容见 [level-4-team-mode.md](references/level-4-team-mode.md)。
 
-复用第3关的访谈素材，跳过访谈直接进入团队对抗写作。
+复用第3关的访谈素材，通过模拟演示让用户理解团队协作流程。
 
 **验证条件：**
-- `./writing/output/` 下有新的终稿（团队模式产出）
+- 用户完成了风格组合选择（Step 3 交互）
+- 用户完成了评审判断（Step 4.3 交互）
 
 ### 第5关：创建你的 Skill（毕业）
 

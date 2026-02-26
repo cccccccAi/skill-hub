@@ -102,6 +102,7 @@
 ✅ 多 Agent 分工：Interviewer / Writer A / Writer B / Critic
 ✅ 对抗式写作的价值：不同视角碰撞出更好的内容
 ✅ Critic 评审确保质量，Team Lead 综合终稿取各家之长
+✅ 想体验完整团队模式，可运行 `/interview-write-team`
 
 ### 背后的原理
 
