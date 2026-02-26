@@ -15,6 +15,10 @@
 
 ## 快速开始
 
+**新手请先看 [`learning/getting-started.md`](learning/getting-started.md)**（入门手册），只需 4 步人工操作，其余交给 AI。
+
+技术用户可以直接：
+
 ```bash
 git clone https://github.com/cccccccAi/skill-hub.git
 cd skill-hub
@@ -51,7 +55,8 @@ skill-hub/
 │   ├── drafts/                  # 中间产物（不入 git）
 │   └── output/                  # 最终产出（不入 git）
 ├── learning/                    # 学习工作空间
-│   ├── setup-guide.md           # 环境安装指南
+│   ├── getting-started.md       # 入门手册（新手看这个）
+│   ├── setup-guide.md           # 完整安装指南（技术参考）
 │   ├── official-skill-guide.md  # 官方 Skill 搭建指南
 │   ├── progress.md              # 闯关进度（不入 git）
 │   └── my-first-skill/          # 学员作品（不入 git）

@@ -1,6 +1,6 @@
-# Claude Code 环境安装指南
+# Claude Code 环境安装指南（完整版）
 
-> **AI IDE 请注意：** 用户打开此项目后，第一件事就是按照本文档完成环境安装。请逐步引导用户执行以下步骤，每完成一步验证通过后再进入下一步。
+> **新手推荐先看 [入门手册](getting-started.md)**，只需 4 步即可完成。本文档是详细技术参考。
 >
 > 本指南兼容 macOS 和 Windows，无需 Anthropic 账号。
 
@@ -49,42 +49,7 @@ node -v
 
 ---
 
-## Step 2: 安装 Git
-
-Git 是代码版本管理工具，Claude Code 依赖它运行。
-
-**Windows 用户必须先完成此步骤，否则后续 Claude Code 安装会失败。**
-
-### macOS
-
-在终端运行：
-
-```bash
-xcode-select --install
-```
-
-会弹出安装对话框，点击「安装」，等待完成（可能需要几分钟）。
-
-如果提示"已经安装"，说明你已经有 Git 了，跳过此步。
-
-### Windows
-
-1. 前往 https://git-scm.com/downloads/win
-2. 下载安装包（选 "64-bit Git for Windows Setup"）
-3. 双击运行，**所有选项保持默认**，一路点「Next」直到完成
-4. **安装完毕后，关闭并重新打开终端**
-
-### 验证
-
-```bash
-git --version
-```
-
-看到 `git version x.x.x` 即成功。
-
----
-
-## Step 3: 安装 Claude Code
+## Step 2: 安装 Claude Code
 
 ### macOS
 
@@ -114,7 +79,7 @@ claude --version
 
 ---
 
-## Step 4: 安装 cc-switch 并配置模型
+## Step 3: 安装 cc-switch 并配置模型
 
 cc-switch 是一个模型切换工具，让你可以使用 Qwen 等国产大模型来驱动 Claude Code。
 
@@ -147,13 +112,12 @@ cc-switch 是一个模型切换工具，让你可以使用 Qwen 等国产大模�
 
 ---
 
-## Step 5: 验证环境
+## Step 4: 验证环境
 
 在终端依次运行以下命令：
 
 ```bash
 node -v          # 应看到 v18+
-git --version    # 应看到 git version x.x.x
 claude --version # 应看到版本号
 ```
 
@@ -161,7 +125,7 @@ claude --version # 应看到版本号
 
 ---
 
-## Step 6: 启动 Claude Code 并开始学习
+## Step 5: 启动 Claude Code 并开始学习
 
 ### 6a. 打开终端并进入项目目录
 
@@ -197,7 +161,6 @@ Claude Code 启动后，它会自动读取项目信息。输入以下命令开�
 
 - [ ] CodeBuddy 已安装，终端可用
 - [ ] Node.js 18+（`node -v` 通过）
-- [ ] Git（`git --version` 通过）
 - [ ] Claude Code（`claude --version` 通过）
 - [ ] cc-switch 已配置模型
 - [ ] `claude` 可正常启动，`/learn` 可以运行

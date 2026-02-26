@@ -8,12 +8,12 @@
 
 ### 1. 检查当前位置
 
-运行 `git rev-parse --is-inside-work-tree`。
+先检查 `.claude/skills/` 目录是否存在且有内容（`ls .claude/skills/`）。
 
-- **已在 git 仓库** → 检查是否是 skill-hub（`.claude/skills/` 目录存在且有内容）
-  - 是 → 跳关
-  - 不是 → 提示用户需要 clone skill-hub
-- **不在 git 仓库** → 进入教学
+- **目录存在且有 ≥2 个子目录** → 已在 skill-hub，跳关
+- **目录不存在** → 检查是否在 git 仓库（`git rev-parse --is-inside-work-tree`，如果 git 命令不可用则视为不在仓库）
+  - 在其他仓库 → 提示用户需要打开 skill-hub 项目
+  - 不在仓库 → 进入教学
 
 ### 2. Clone 仓库
 
@@ -62,8 +62,8 @@ git commit -m "说明"  # 提交改动
 
 运行以下检查：
 
-1. `git rev-parse --is-inside-work-tree` → 返回 `true`
-2. `ls .claude/skills/ | wc -l` → 至少 2 个目录
+1. `ls .claude/skills/ | wc -l` → 至少 2 个目录（主要验证条件）
+2. `git rev-parse --is-inside-work-tree` → 返回 `true`（如果 git 可用则检查，不可用则跳过此项）
 
 全部通过 → 显示：
 

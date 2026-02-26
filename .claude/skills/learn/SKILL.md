@@ -74,11 +74,11 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 详细内容见 [level-1-git-repo.md](references/level-1-git-repo.md)。
 
-**跳关检测：** 运行 `git rev-parse --is-inside-work-tree` 和 `ls .claude/skills/`，如果当前已在 skill-hub 且 skills 目录下有 ≥2 个目录，显示"检测到你已在 skill-hub 中，自动跳过第1关"，直接进入第2关。
+**跳关检测：** 运行 `ls .claude/skills/`，如果 skills 目录下有 ≥2 个子目录，显示"检测到你已在 skill-hub 中，自动跳过第1关"，直接进入第2关。
 
 **验证条件：**
-- `git rev-parse --is-inside-work-tree` 返回 true
-- `.claude/skills/` 下有至少 2 个子目录
+- `.claude/skills/` 下有至少 2 个子目录（主要条件）
+- `git rev-parse --is-inside-work-tree` 返回 true（如果 git 可用则检查，不可用则跳过此项）
 
 ### 第2关：理解 Skill 结构
 
