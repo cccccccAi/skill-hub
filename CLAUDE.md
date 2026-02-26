@@ -35,6 +35,7 @@ skill-hub/
 | `/learn [关卡编号]` | 闯关教学：5关从入门到创建自己的 Skill |
 | `/interview-write [主题]` | 教学案例：访谈 → 写作 → 自动优化 |
 | `/interview-write-team [主题]` | 教学案例：访谈 → 双写手对抗 → 评审 → 综合终稿 |
+| `/build-course [学习主题]` | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 |
 
 ## 写作风格规范
 
