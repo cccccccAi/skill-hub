@@ -223,9 +223,20 @@ allowed-tools: Read Write Edit Bash(ls)
 - 正文是如何指导 AI 执行的
 - allowed-tools 为什么选了这几个
 
-最后告知：
-> 如果想实际使用，只需要把这个文件复制到 `.claude/skills/{skill-name}/SKILL.md`，
-> 然后就可以用 `/{skill-name}` 来调用了！
+最后告知部署步骤：
+
+> 想实际使用的话，两步就行：
+>
+> **第一步：复制到 skills 目录**
+> ```bash
+> cp -r ./learning/my-first-skill .claude/skills/{skill-name}
+> ```
+>
+> **第二步：重启 Claude Code**
+> 新增的 Skill 需要重新启动 Claude Code（关闭当前窗口再打开，或新开一个窗口）才能被识别。
+> 重启后输入 `/{skill-name}` 就能用了！
+>
+> **注意：** 修改已有 Skill 的内容不需要重启，只有新增 Skill 目录时才需要。
 
 ## 验证
 
