@@ -4,7 +4,7 @@
 
 ## 新用户引导
 
-> **AI IDE（如 CodeBuddy）读取到此文件时：** 如果用户刚克隆了这个项目、还没有安装 Claude Code，请引导用户先按照 `learning/getting-started.md` 完成环境安装（只需 4 步人工操作）。安装完成后，指导用户在终端中输入 `claude` 启动 Claude Code。
+> **AI IDE（如 CodeBuddy）读取到此文件时：** 如果用户刚克隆了这个项目、还没有安装 Claude Code，请引导用户先按照 `learning/getting-started.md` 完成环境安装（只需 3 步）。安装完成后，指导用户在终端中输入 `claude` 启动 Claude Code。
 
 > **Claude Code 启动后读取到此文件时：** 先确认 `.claude/skills/` 目录下的技能文件完整（应包含 learn、interview-write、interview-write-team、build-course 四个目录）。然后提示用户：「欢迎来到 Skill-Hub！输入 `/learn` 开始闯关学习。」
 

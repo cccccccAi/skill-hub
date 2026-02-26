@@ -15,7 +15,7 @@
 
 ## 快速开始
 
-**新手请先看 [`learning/getting-started.md`](learning/getting-started.md)**（入门手册），只需 4 步人工操作，其余交给 AI。
+**新手请先看 [`learning/getting-started.md`](learning/getting-started.md)**（入门手册），只需 3 步，其余交给 AI。
 
 技术用户可以直接：
 
