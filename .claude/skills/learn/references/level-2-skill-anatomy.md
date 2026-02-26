@@ -62,28 +62,61 @@ disable-model-invocation: true
 
 > 团队模式会启动多个 Agent 并行工作，开销更大，所以加了这个标记。
 
-## 验证：互动问答
+## 验证：选择题
 
-向用户提问 3 题（随机选 3 题，从以下题库中选）：
+使用 AskUserQuestion 工具的 options 参数，向用户出 3 道 4 选 1 选择题。从以下 5 道题库中随机选 3 题：
 
-**题库：**
+### 题库
 
-1. **用户通过什么命令来调用一个 Skill？**
-   - 答：`/技能名`，比如 `/interview-write`
+**Q1: 用户通过什么方式调用一个 Skill？**
 
-2. **SKILL.md 中的 `name` 字段有什么命名规则？**
-   - 答：小写字母 + 连字符（如 `interview-write`）
+使用 AskUserQuestion：
+- options:
+  - "在 CLAUDE.md 里写指令"
+  - "输入 /技能名（如 /interview-write）" ← 正确
+  - "运行 node skill.js"
+  - "在设置中启用插件"
 
-3. **`allowed-tools` 字段的作用是什么？**
-   - 答：限制 Skill 可以使用的工具/权限
+**Q2: SKILL.md 中的 name 字段有什么要求？**
 
-4. **如果一个 Skill 内容很多，怎么组织？**
-   - 答：拆到 `references/` 子目录，主文件用链接引用
+使用 AskUserQuestion：
+- options:
+  - "必须是中文"
+  - "可以用任意格式"
+  - "小写字母+连字符（如 my-skill）" ← 正确
+  - "必须和文件夹名不同"
 
-5. **`disable-model-invocation: true` 是什么意思？**
-   - 答：标记这个 Skill 开销较大（如多 Agent 协作），需要用户确认才运行
+**Q3: allowed-tools 字段的作用是什么？**
 
-答对 2/3 即通过。答错时给出正确答案和解释，不扣分重来。
+使用 AskUserQuestion：
+- options:
+  - "定义 Skill 的安装依赖"
+  - "列出需要的 API Key"
+  - "限制 Skill 可以使用的工具权限" ← 正确
+  - "指定 Skill 的输出格式"
+
+**Q4: 如果 Skill 内容很多，怎么组织？**
+
+使用 AskUserQuestion：
+- options:
+  - "全部写在 SKILL.md 里"
+  - "拆到 references/ 子目录，主文件用链接引用" ← 正确
+  - "写在 CLAUDE.md 里"
+  - "拆成多个 SKILL.md"
+
+**Q5: disable-model-invocation: true 表示什么？**
+
+使用 AskUserQuestion：
+- options:
+  - "Skill 被禁用了"
+  - "不允许用户调用"
+  - "标记为高开销，需要用户确认才运行" ← 正确
+  - "只能在团队模式使用"
+
+### 判分规则
+
+- 每题用户选完后立刻反馈对错，错了给出正确答案和简短解释
+- 答对 2/3 即通过，不需要重来
 
 通过后显示：
 
