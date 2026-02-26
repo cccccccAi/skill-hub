@@ -107,6 +107,8 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 详细内容见 [level-5-create-skill.md](references/level-5-create-skill.md)。
 
+用户亲手参与关键环节：写 description、做设计决策、审查成品。
+
 **验证条件：**
 - `./learning/my-first-skill/SKILL.md` 文件存在
 - frontmatter 包含 name（小写连字符格式）和 description（非空）
@@ -145,6 +147,11 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 ✅ 从零创建自己的 Skill
 
 你的第一个 Skill 在 ./learning/my-first-skill/ 中。
+
+想创建更多 Skill？从模板开始：
+  templates/basic/    → 最简骨架
+  templates/standard/ → 完整模板
+
 继续探索，创造更多有趣的 Skills 吧！
 ```
 
