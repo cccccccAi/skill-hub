@@ -1,6 +1,6 @@
 # Claude Code 环境安装指南（完整版）
 
-> **新手推荐先看 [入门手册](getting-started.md)**，只需 4 步即可完成。本文档是详细技术参考。
+> **新手推荐先看 [入门手册](getting-started.md)**，只需 3 步即可上手。本文档是详细技术参考。
 >
 > 本指南兼容 macOS 和 Windows，无需 Anthropic 账号。
 

@@ -48,7 +48,7 @@ skill-hub/
 
 ## 写作风格规范
 
-- **字数**：1000 字符以内（默认，可在 style-guide.md 中调整）
+- **字数**：1000 字符以内（默认，可在 `.claude/skills/interview-write/references/style-guide.md` 中调整）
 - **标题**：3 个备选，极其吸睛
 - **前三行**：3 秒内抓住读者
 - **金句**：加粗（`**`），每 50-80 字一个
