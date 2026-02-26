@@ -1,27 +1,33 @@
-# Claude Code Skill Repos
+# AI Skill Hub
 
-基于 Claude Code 的多 Agent 协作技能仓库集合。每个技能团队是一个独立仓库，按 `skill-{domain}` 命名。
+基于 [Agent Skills](https://agentskills.io) 开放标准的个人技能集合，通过 Claude Code 驱动。
 
 ## 技能索引
 
-| 仓库 | 领域 | 技能 | 状态 |
+| 技能 | 领域 | 模式 | 状态 |
 |------|------|------|------|
-| [skill-writing](https://github.com/cccccccAi/skill-writing) | 写作团队 | interview-write, interview-write-team | Active |
-| skill-mao-research | 毛选调查研究团队 | TBD | Planned |
-| skill-edu-user-research | 教育产品用户需求分析团队 | TBD | Planned |
+| `interview-write` | 写作 | 单人：访谈 → 写作 → 优化 | Active |
+| `interview-write-team` | 写作 | 团队：访谈 → 对抗写作 → 评审 → 终稿 | Active |
+| `mao-research` | 调查研究 | TBD | Planned |
+| `edu-user-research` | 用户研究 | TBD | Planned |
 
 ## 快速开始
 
 ```bash
-# 克隆某个技能仓库
-git clone git@github.com:cccccccAi/skill-writing.git
-cd skill-writing
+cd skill-hub
+claude
 
-# 在 Claude Code 中使用技能
-# /访谈写作 我最近的创业故事
-# /访谈写作团队 AI时代的焦虑
+# 单人写作
+# /interview-write 我最近的创业故事
+
+# 团队写作
+# /interview-write-team AI时代的焦虑
 ```
 
-## 新建技能仓库
+## 工作空间
 
-参考 [docs/how-to-create-new-skill.md](docs/how-to-create-new-skill.md)
+| 目录 | 用途 |
+|------|------|
+| `writing/examples/` | 风格参考文章 |
+| `writing/output/` | 最终发布的文章 |
+| `writing/drafts/` | 中间产物（gitignored） |
