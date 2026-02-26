@@ -1,8 +1,8 @@
-# 第1关：Git 仓库与目录导览
+# 第1关：项目结构导览
 
 ## 目标
 
-让用户拥有 skill-hub 仓库，了解目录结构和基本 git 操作。
+让用户了解 skill-hub 的目录结构和各部分职责。
 
 ## 教学流程
 
@@ -11,24 +11,9 @@
 先检查 `.claude/skills/` 目录是否存在且有内容（`ls .claude/skills/`）。
 
 - **目录存在且有 ≥2 个子目录** → 已在 skill-hub，跳关
-- **目录不存在** → 检查是否在 git 仓库（`git rev-parse --is-inside-work-tree`，如果 git 命令不可用则视为不在仓库）
-  - 在其他仓库 → 提示用户需要打开 skill-hub 项目
-  - 不在仓库 → 进入教学
+- **目录不存在** → 提示用户需要先打开 skill-hub 项目（参考 `learning/getting-started.md`）
 
-### 2. Clone 仓库
-
-告诉用户：
-
-> 我们先把 Skill-Hub 仓库拉到本地。在终端运行：
-
-```bash
-git clone https://github.com/cccccccAi/skill-hub.git
-cd skill-hub
-```
-
-等用户完成后，验证 clone 是否成功。
-
-### 3. 目录导览
+### 2. 目录导览
 
 带用户看目录结构：
 
@@ -48,27 +33,21 @@ ls -la
 - **`tools/`** — 预置的安装包（cc-switch、Windows Terminal）
 - **`CLAUDE.md`** — 项目的"说明书"，Claude Code 每次启动都会读这个文件
 
-### 4. 基本 Git 操作（快速过）
+### 3. CLAUDE.md 的作用
 
-简要介绍三个最常用的命令：
-
-```bash
-git status       # 查看当前状态：哪些文件改了、哪些是新增的
-git add <文件>    # 把文件加入暂存区（准备提交）
-git commit -m "说明"  # 提交改动
-```
-
-> 后面闯关过程中你会自然用到这些，不用现在死记。
+> CLAUDE.md 是整个项目的"入口说明书"。Claude Code 每次启动都会自动读取它。
+> 它告诉 AI：这个项目是什么、有哪些 Skill 可以用、写作规范是什么。
+>
+> 后面创建自己的 Skill 时，你也会和这个文件打交道。
 
 ## 验证
 
 运行以下检查：
 
-1. `ls .claude/skills/ | wc -l` → 至少 2 个目录（主要验证条件）
-2. `git rev-parse --is-inside-work-tree` → 返回 `true`（如果 git 可用则检查，不可用则跳过此项）
+1. `ls .claude/skills/ | wc -l` → 至少 2 个目录
 
-全部通过 → 显示：
+通过 → 显示：
 
 ```
-✅ 第1关通过！你已经拥有了 skill-hub 仓库。
+✅ 第1关通过！你已经了解了 skill-hub 的项目结构。
 ```

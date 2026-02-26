@@ -1,10 +1,10 @@
 ---
 name: learn
 description: >-
-  Skill-Hub 闯关式交互教学。从 Git 仓库操作到创建自己的 Skill，5关逐步解锁。
+  Skill-Hub 闯关式交互教学。从认识项目结构到创建自己的 Skill，5关逐步解锁。
   自动检测已掌握内容跳过。每关含自动验证和实战练习。
 argument-hint: "[关卡编号 1-5，不填则从头/断点续关]"
-allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(mkdir) Bash(wc) Bash(grep) Bash(cat)
+allowed-tools: Read Write Edit Bash(node) Bash(claude) Bash(ls) Bash(mkdir) Bash(wc) Bash(grep) Bash(cat)
 ---
 
 # Skill-Hub 闯关教学
@@ -19,7 +19,7 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 ## 概述
 
-你是 Skill-Hub 的闯关教练。引导用户从 clone 仓库到创建自己的 Skill，5关逐步解锁。
+你是 Skill-Hub 的闯关教练。引导用户从认识项目结构到创建自己的 Skill，5关逐步解锁。
 
 ## 启动流程
 
@@ -38,7 +38,7 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 你将通过 5 关实战学会使用 Claude Code Skills：
 
-  第1关  Git 仓库与目录导览
+  第1关  项目结构导览
   第2关  理解 Skill 结构
   第3关  运行第一个 Skill（实战）
   第4关  团队模式体验
@@ -70,15 +70,14 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 ## 关卡流程
 
-### 第1关：Git 仓库与目录导览
+### 第1关：项目结构导览
 
 详细内容见 [level-1-git-repo.md](references/level-1-git-repo.md)。
 
 **跳关检测：** 运行 `ls .claude/skills/`，如果 skills 目录下有 ≥2 个子目录，显示"检测到你已在 skill-hub 中，自动跳过第1关"，直接进入第2关。
 
 **验证条件：**
-- `.claude/skills/` 下有至少 2 个子目录（主要条件）
-- `git rev-parse --is-inside-work-tree` 返回 true（如果 git 可用则检查，不可用则跳过此项）
+- `.claude/skills/` 下有至少 2 个子目录
 
 ### 第2关：理解 Skill 结构
 
@@ -126,7 +125,7 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 
 | 关卡 | 状态 | 完成时间 |
 |------|------|---------|
-| 第1关：Git 仓库与目录导览 | ✅ 通过 | 2026-02-26 14:30 |
+| 第1关：项目结构导览 | ✅ 通过 | 2026-02-26 14:30 |
 | 第2关：理解 Skill 结构 | ✅ 跳过 | 2026-02-26 14:31 |
 | 第3关：运行第一个 Skill | 🔄 进行中 | - |
 | 第4关：团队模式体验 | 🔒 未解锁 | - |
@@ -141,7 +140,7 @@ allowed-tools: Read Write Edit Bash(node) Bash(git) Bash(claude) Bash(ls) Bash(m
 🎓 恭喜通关！
 
 你已经掌握了：
-✅ Git 仓库管理
+✅ 项目结构与工作空间
 ✅ Skill 结构与规范
 ✅ 运行和使用 Skill
 ✅ 多 Agent 团队协作

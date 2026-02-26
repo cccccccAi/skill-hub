@@ -8,20 +8,19 @@
 
 ### 学习要点
 
-✅ Git 仓库管理：clone、status、add、commit
 ✅ skill-hub 目录结构：skills 定义、writing 工作空间、learning 学习空间
 ✅ 各目录的职责分工
+✅ CLAUDE.md 是项目的入口说明书，Claude Code 每次启动都会读取
 
 ### 背后的原理
 
 ```
-你做了什么：
-  git clone → 把远程仓库拉到本地
+项目结构的设计逻辑：
 
-仓库结构的设计逻辑：
   .claude/skills/   → 技能定义（Claude Code 会自动扫描这里）
   writing/           → 技能的工作空间（输入输出都在这里）
   learning/          → 你的学习空间
+  templates/         → Skill 模板（创建新 Skill 的起点）
   CLAUDE.md          → 项目说明书（Claude Code 每次启动都读）
 ```
 
