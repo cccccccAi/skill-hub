@@ -11,7 +11,7 @@ skill-hub/
 │   ├── interview-write-team/    # 团队对抗写作（/interview-write-team）
 │   └── learn/                   # 闯关式交互教学（/learn）
 ├── writing/                     # 写作工作空间
-│   ├── examples/                # 风格参考文章
+│   ├── examples/                # 风格参考文章（可自定义）
 │   ├── drafts/                  # 中间产物（不入 git）
 │   └── output/                  # 最终发布的文章
 ├── learning/                    # 学习工作空间
@@ -40,3 +40,12 @@ skill-hub/
 - **前三行**：3 秒内抓住读者
 - **金句**：加粗（`**`），每 50-80 字一个
 - **风格参考**：写作前必须读取 `./writing/examples/` 中所有 `.md` 文件
+
+## 自定义风格案例
+
+`writing/examples/` 目录存放写作风格参考文章。写作 Skill 在生成文章前会读取这些案例来学习风格。
+
+你可以替换或新增自己喜欢的文章作为参考：
+- 支持 `.md` 格式
+- 建议放 3-5 篇能代表你想要风格的文章
+- 修改后立即生效，无需重启
