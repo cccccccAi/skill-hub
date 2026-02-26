@@ -1,6 +1,7 @@
 # Claude Code 环境安装指南
 
-> 请在 CodeBuddy 中打开此文档，让 AI 协助你完成以下安装步骤。
+> **AI IDE 请注意：** 用户打开此项目后，第一件事就是按照本文档完成环境安装。请逐步引导用户执行以下步骤，每完成一步验证通过后再进入下一步。
+>
 > 本指南兼容 macOS 和 Windows，无需 Anthropic 账号。
 
 ---
@@ -14,7 +15,7 @@
 
 ### Windows
 
-1. **先安装 Windows Terminal**：打开 Microsoft Store，搜索 "Windows Terminal"，点击安装
+1. **先安装 Windows Terminal**：解压 `tools/windows/WindowsTerminal-v1.23-x64.zip`（64位系统）或 `WindowsTerminal-v1.23-x86.zip`（32位系统），运行里面的安装程序。也可从 Microsoft Store 搜索 "Windows Terminal" 安装
 2. 打开 CodeBuddy（https://www.codebuddy.cn/）
 3. 按 `Ctrl + ~` 打开终端，确认终端类型是 **PowerShell**（不是 CMD）
 
@@ -154,13 +155,37 @@ git --version    # 应看到 git version x.x.x
 claude --version # 应看到版本号
 ```
 
-最后运行：
+全部通过即可进入下一步。
+
+---
+
+## Step 6: 启动 Claude Code 并开始学习
+
+### 6a. 打开终端并进入项目目录
+
+在 CodeBuddy 终端中，确保当前在 skill-hub 项目目录下：
+
+```bash
+cd skill-hub    # 如果还没在项目目录中
+```
+
+### 6b. 启动 Claude Code
 
 ```bash
 claude
 ```
 
-如果能正常启动并对话，说明环境配置成功！输入 `/exit` 退出。
+首次启动可能需要几秒钟。看到 Claude Code 的交互界面说明启动成功。
+
+### 6c. 开始闯关学习
+
+Claude Code 启动后，它会自动读取项目信息。输入以下命令开始学习：
+
+```
+/learn
+```
+
+这将启动 5 关闯关教学，从零学会使用 Claude Code Skills。
 
 ---
 
@@ -172,9 +197,8 @@ claude
 - [ ] Node.js 18+（`node -v` 通过）
 - [ ] Git（`git --version` 通过）
 - [ ] Claude Code（`claude --version` 通过）
-- [ ] cc-switch 已配置模型，`claude` 可正常启动
-
-全部通过后，你就可以开始 Skill-Hub 闯关学习了！
+- [ ] cc-switch 已配置模型
+- [ ] `claude` 可正常启动，`/learn` 可以运行
 
 ---
 
