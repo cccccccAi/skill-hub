@@ -44,6 +44,8 @@ ls -la
   - `drafts/` — 中间产物，写作过程中的草稿
   - `output/` — 最终文章，也就是成品
 - **`learning/`** — 你的学习工作空间（就是现在用的）
+- **`templates/`** — Skill 模板骨架，第5关创建 Skill 时会用到
+- **`tools/`** — 预置的安装包（cc-switch、Windows Terminal）
 - **`CLAUDE.md`** — 项目的"说明书"，Claude Code 每次启动都会读这个文件
 
 ### 4. 基本 Git 操作（快速过）
