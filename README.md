@@ -15,7 +15,9 @@
 
 ## 快速开始
 
-**新手请先看 [`learning/getting-started.md`](learning/getting-started.md)**（入门手册），只需 3 步，其余交给 AI。
+**第一步：用浏览器打开项目中的 [`index.html`](index.html)**，了解项目全貌和详细安装教程。
+
+新手也可以看 [`learning/getting-started.md`](learning/getting-started.md)（入门手册），只需 3 步，其余交给 AI。
 
 技术用户可以直接：
 
