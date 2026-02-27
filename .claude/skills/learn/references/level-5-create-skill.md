@@ -176,18 +176,21 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-然后直接告诉用户：
+然后使用 AskUserQuestion 提问：
 
-> 现在轮到你了。**用一句话描述你的 {skill-name} 能做什么。**
-> 不用写得完美，用你自己的话说就行。直接在下面输入。
+```
+现在轮到你了——用一句话描述你的 {skill-name} 能做什么：
+```
+- 我来写（选 Other 输入你的 description）
+- 给我个参考，我再改（AI 先写一版初稿，你来修改）
+- 帮我写（AI 根据前面的选择自动生成）
 
-等待用户输入。如果用户实在不想写或者卡住了，提供兜底：
+**处理逻辑：**
+- **"我来写"**：用户会在 Other 中输入自己的 description，直接使用
+- **"给我个参考，我再改"**：AI 根据角色+痛点+Skill 名称生成一版 description，展示给用户，再用 AskUserQuestion 问「直接用这个 / 我改一下（选 Other 输入修改版）」
+- **"帮我写"**：AI 自动生成，告知用户"这是我帮你写的，你随时可以在 SKILL.md 里改"
 
-使用 AskUserQuestion：
-- "我写好了"（用户已经在上面输入了 description）
-- "帮我写一个"（AI 根据前面选择自动生成，但会说明"这是我帮你写的，你随时可以改"）
-
-记录用户写的 description，后续生成 SKILL.md 时使用。
+记录最终确定的 description，后续生成 SKILL.md 时使用。
 
 ### Step 5: 设计决策 + 生成骨架
 
@@ -312,6 +315,70 @@ Skill 会按照你设计的流程执行：
 > - `templates/standard/SKILL.md` — 完整模板，含进阶结构
 >
 > 以后想创建新 Skill，可以从这些模板开始。
+
+### Step 8: 展示到你的作品墙
+
+使用 AskUserQuestion 提问：
+
+```
+要不要把你的作品展示到 index.html 的「我的作品」Tab 上？
+```
+- 好！帮我生成（AI 自动读取、解析、生成可视化卡片）
+- 先跳过（直接进入通关结语）
+
+**如果用户选"好！帮我生成"：**
+
+执行以下步骤（全自动，不需要用户操作）：
+
+1. **读取** `./learning/my-first-skill/SKILL.md`
+2. **解析内容**：
+   - YAML frontmatter：提取 `name`、`description`、`allowed-tools` 列表
+   - 正文：提取编号列表作为执行步骤、表格行作为边缘情况、Anti-Pattern 标题下的列表项
+3. **生成 HTML 卡片**，使用 index.html 中已有的 CSS 类，模板如下：
+
+```html
+<div class="achievement-card">
+  <h3>{name}</h3>
+  <p class="desc">{description}</p>
+  <div class="achievement-tools">
+    <div class="achievement-section-label">可用工具</div>
+    <div class="achievement-tool-badges">
+      <span class="achievement-tool-badge">{每个工具一个 badge}</span>
+    </div>
+  </div>
+  <div class="achievement-flow">
+    <div class="achievement-section-label">执行流程</div>
+    <div class="achievement-step">
+      <span class="achievement-step-num">{序号}</span>
+      <span class="achievement-step-text">{步骤描述}</span>
+    </div>
+    <!-- 每个步骤一个 achievement-step -->
+  </div>
+  <!-- 如果有边缘情况 -->
+  <div class="achievement-edge">
+    <div class="achievement-section-label">边缘情况处理</div>
+    <div class="achievement-edge-item"><strong>{场景}</strong> → {处理方式}</div>
+  </div>
+  <!-- 如果有 anti-patterns -->
+  <div class="achievement-anti">
+    <div class="achievement-section-label">Anti-Patterns</div>
+    <div class="achievement-anti-item"><span class="x-mark">✕</span> {内容}</div>
+  </div>
+  <div class="congrats">🎉 恭喜！你创建了自己的第一个 Skill。</div>
+</div>
+```
+
+4. **用 Edit 工具**找到 `index.html` 中 `<!-- SKILL-SHOWCASE-START -->` 和 `<!-- SKILL-SHOWCASE-END -->` 之间的内容，替换为生成的卡片 HTML（放在 `<div class="achievement-cards">` 容器内）
+5. **告知用户**：
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🏆 已完成！
+
+你的 Skill 已经可视化展示在 index.html 中了。
+用浏览器打开 index.html，点击最后一个 Tab「我的作品」查看。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
 ## 验证
 

@@ -1,4 +1,4 @@
-# 第4关：团队模式体验
+# 第4关：团队模式
 
 ## 目标
 
@@ -52,6 +52,12 @@
 读取 `./writing/drafts/interview-transcript.md` 获取第3关的访谈素材。
 
 **重要：这一步是 learn agent 自己模拟各角色，不需要启动真正的 Agent Team。**
+
+#### 4.0 素材质量检查
+
+读取 `./writing/drafts/interview-transcript.md`，检查内容长度：
+- **≥ 500 字符** → 素材充足，直接进入模拟
+- **< 500 字符** → 提示用户：「访谈素材比较简短，模拟时我会适当补充一些细节，确保演示效果完整。」
 
 #### 4.1 模拟 Writer A + Writer B
 
