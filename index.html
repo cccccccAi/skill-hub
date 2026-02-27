@@ -578,7 +578,7 @@ p {
    ============================================================ */
 .achievement-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
@@ -602,7 +602,10 @@ p {
 }
 .achievement-card .stats {
   display: flex;
-  gap: 16px;
+  gap: 20px;
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--divider);
 }
 .achievement-card .stat {
   font-size: 13px;
@@ -624,17 +627,8 @@ p {
   font-weight: 500;
 }
 
-/* Achievement card: tools badges */
-.achievement-section-label {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent-5);
-  margin-bottom: 10px;
-}
 .achievement-tools {
-  margin-top: 20px;
+  margin-top: 16px;
 }
 .achievement-tool-badges {
   display: flex;
@@ -651,67 +645,95 @@ p {
   color: var(--accent-5);
 }
 
-/* Achievement card: execution steps */
-.achievement-flow {
-  margin-top: 20px;
+/* ============================================================
+   Two-Column Steps (for 2-item layouts like Tab 5)
+   ============================================================ */
+.steps-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 640px;
+  margin: 0 auto;
 }
-.achievement-step {
+
+/* ============================================================
+   Enhanced Step Cards (Tab 1 Getting Started)
+   ============================================================ */
+.step-card-enhanced {
+  text-align: left;
+  padding: 32px 28px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+}
+.step-card-enhanced .step-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--divider);
+  gap: 14px;
+  margin-bottom: 16px;
 }
-.achievement-step:last-child { border-bottom: none; }
-.achievement-step-num {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--accent-5);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+.step-card-enhanced .step-header h3 {
+  font-size: 17px;
+  margin: 0;
 }
-.achievement-step-text {
+.step-card-enhanced .step-body {
   font-size: 14px;
   color: var(--text-secondary);
+  line-height: 1.7;
 }
-
-/* Achievement card: edge cases */
-.achievement-edge {
-  margin-top: 20px;
+.step-card-enhanced .step-body p {
+  max-width: none;
+  margin-bottom: 10px;
 }
-.achievement-edge-item {
-  padding: 8px 12px;
-  margin-bottom: 6px;
-  border-radius: 8px;
-  background: var(--bg-alt);
+.step-card-enhanced .step-body p:last-child {
+  margin-bottom: 0;
+}
+.step-card-enhanced .step-code-block {
+  display: block;
+  margin-top: 10px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-family: var(--font-mono);
   font-size: 13px;
-  color: var(--text-secondary);
+  line-height: 1.6;
+  overflow-x: auto;
+  word-break: break-all;
 }
-.achievement-edge-item:last-child { margin-bottom: 0; }
-.achievement-edge-item strong {
-  color: var(--text-primary);
-}
-
-/* Achievement card: anti-patterns */
-.achievement-anti {
-  margin-top: 20px;
-}
-.achievement-anti-item {
-  padding: 4px 0;
+.step-card-enhanced .step-sub {
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 2px solid var(--divider);
   font-size: 13px;
   color: var(--text-tertiary);
+  line-height: 1.6;
 }
-.achievement-anti-item .x-mark {
-  color: #CC3340;
-  font-weight: 600;
-  margin-right: 4px;
+
+/* ============================================================
+   Achievement Card Header & Badge (simplified card)
+   ============================================================ */
+.achievement-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
 }
+.achievement-badge {
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--accent-5);
+  color: #fff;
+  flex-shrink: 0;
+}
+.achievement-badge-builtin {
+  background: var(--accent-1);
+}
+
 /* ============================================================
    Scroll Reveal Animations
    ============================================================ */
@@ -1268,11 +1290,13 @@ p {
   .pain-grid { grid-template-columns: 1fr; max-width: 400px; }
   .promise-grid { grid-template-columns: 1fr; max-width: 400px; }
   .steps-grid { grid-template-columns: 1fr; max-width: 400px; }
+  .steps-grid-2 { grid-template-columns: 1fr; max-width: 400px; }
   .article-showcase { padding: 32px 24px; }
 }
 @media (max-width: 480px) {
   .hero { min-height: auto; padding: 48px 16px 32px; }
   .card-grid { grid-template-columns: 1fr; }
+  .achievement-cards { grid-template-columns: 1fr; }
   .staircase { gap: 2px; height: 200px; }
   .stair-bar { width: 48px; }
   .roadmap-line { width: 24px; }
@@ -1393,26 +1417,92 @@ p {
       <div class="section-header">
         <div class="label reveal">3 步开始</div>
         <h2 class="reveal">现在就可以开始</h2>
+        <p class="reveal">全程约 30 分钟，跟着做就行</p>
       </div>
-      <div class="steps-grid stagger">
-        <div class="step-card reveal" style="--i:0">
-          <div class="step-num">1</div>
-          <h3>安装环境</h3>
-          <p>安装 CodeBuddy + 克隆项目</p>
-          <code>git clone ... && cd skill-hub</code>
+      <!-- 老手快速通道 -->
+      <div class="reveal" style="max-width:640px;margin:0 auto 24px;padding:16px 20px;border-radius:12px;background:var(--white);box-shadow:var(--card-shadow);font-size:14px;color:var(--text-secondary);line-height:1.7;">
+        <strong style="color:var(--accent);">已装过 Claude Code？</strong> 直接克隆项目跳到第 2 步：<br>
+        <code style="display:inline-block;margin-top:6px;padding:4px 12px;border-radius:6px;background:var(--bg-alt);font-family:var(--font-mono);font-size:13px;color:var(--accent);">git clone https://github.com/cccccccAi/skill-hub.git && cd skill-hub</code>
+      </div>
+
+      <div style="max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:20px;" class="stagger">
+
+        <div class="step-card-enhanced reveal" style="--i:0">
+          <div class="step-header">
+            <div class="step-num">1</div>
+            <h3>安装工具，获取项目</h3>
+          </div>
+          <div class="step-body">
+            <p style="padding:10px 14px;border-radius:8px;background:var(--bg-alt);font-size:13px;color:var(--text-tertiary);margin-bottom:14px;">会用命令行？可以直接 <code style="background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:12px;">npm install -g @anthropic-ai/claude-code</code> 安装 Claude Code，然后跳过此步。以下是零基础小白教程。</p>
+            <p><strong>安装 Git（下载代码必需）：</strong></p>
+            <p>macOS：打开「终端」（在启动台搜索"终端"），输入以下命令后回车：</p>
+            <code class="step-code-block">xcode-select --install</code>
+            <div class="step-sub" style="margin-top:6px;margin-bottom:0">会弹出安装窗口，点「安装」等待完成即可（约 130MB，5-10 分钟）。无需其他前置条件。</div>
+            <p style="margin-top:12px">Windows：打开 <code>tools/windows/</code> 目录，依次安装以下两个工具：</p>
+            <p style="padding-left:12px">1. <strong>Git-2.53.0-64-bit.exe</strong> — 双击安装，全部默认下一步</p>
+            <p style="padding-left:12px">2. <strong>WindowsTerminal-v1.23-x64.zip</strong> — 解压后双击安装（避免终端中文乱码）</p>
+            <p style="margin-top:16px"><strong>安装 CodeBuddy（AI 编程助手）：</strong></p>
+            <p>打开 <a href="https://www.codebuddy.cn/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:underline;">codebuddy.cn</a>，下载安装。后续操作都在里面完成。</p>
+            <p style="margin-top:16px"><strong>克隆项目：</strong></p>
+            <p>打开 CodeBuddy，选「克隆 Git 仓库」，粘贴地址（<a href="https://github.com/cccccccAi/skill-hub" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;font-size:13px;">查看仓库</a>）：</p>
+            <code class="step-code-block">https://github.com/cccccccAi/skill-hub.git</code>
+            <p style="margin-top:8px">选择一个你记得住的文件夹保存，等待下载完成。</p>
+            <div style="margin-top:12px;padding:12px 16px;border-radius:10px;background:#FFF8E1;border-left:4px solid #FF9F0A;font-size:14px;color:var(--text-primary);">
+              <strong>记住项目路径！</strong>第 3 步需要用到。<br>
+              例如保存到桌面，路径就是：<br>
+              macOS：<code style="background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:12px;">~/Desktop/skill-hub</code><br>
+              Windows：<code style="background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:12px;">C:\Users\你的用户名\Desktop\skill-hub</code>
+            </div>
+            <p style="margin-top:16px"><strong>让 AI 帮你装依赖：</strong></p>
+            <p>项目打开后，在 CodeBuddy 的 AI 对话框发送：</p>
+            <code class="step-code-block">请阅读项目说明，帮我安装 Claude Code 及所有相关依赖。</code>
+            <div class="step-sub">AI 会自动帮你安装 Node.js、Claude Code 和 cc-switch</div>
+          </div>
         </div>
-        <div class="step-card reveal" style="--i:1">
-          <div class="step-num">2</div>
-          <h3>配置模型</h3>
-          <p>按入门手册完成 3 步设置</p>
-          <code>learning/getting-started.md</code>
+
+        <div class="step-card-enhanced reveal" style="--i:1">
+          <div class="step-header">
+            <div class="step-num">2</div>
+            <h3>配置模型</h3>
+          </div>
+          <div class="step-body">
+            <p><strong>获取免费 API Key：</strong></p>
+            <p>1. 打开 <a href="https://bailian.console.aliyun.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:600;text-decoration:underline;">bailian.console.aliyun.com</a>（阿里云百炼平台），注册并登录</p>
+            <p>2. 进入「秘钥管理」，点击创建并复制你的 API Key</p>
+            <p style="margin-top:16px"><strong>配置 cc-switch：</strong></p>
+            <p>打开 cc-switch 应用，将以下配置粘贴进去（替换对应值）：</p>
+            <code class="step-code-block" style="white-space:pre;word-break:normal;">{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "你的API Key",
+    "ANTHROPIC_BASE_URL": "API访问的地址",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.5-plus",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.5-plus",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3.5-plus",
+    "ANTHROPIC_MODEL": "qwen3.5-plus"
+  }
+}</code>
+            <p style="margin-top:12px">配置完成后点击 <strong>Enable</strong>，然后<strong>关闭并重新打开 CodeBuddy 的终端</strong>让配置生效。</p>
+            <div class="step-sub">首次启动 Claude Code 会弹出安装确认，输入 y 跳过即可。遇到问题把报错截图发给 AI 排查。</div>
+          </div>
         </div>
-        <div class="step-card reveal" style="--i:2">
-          <div class="step-num">3</div>
-          <h3>开始闯关</h3>
-          <p>输入一条命令，开始你的学习之旅</p>
-          <code>/learn</code>
+
+        <div class="step-card-enhanced reveal" style="--i:2">
+          <div class="step-header">
+            <div class="step-num">3</div>
+            <h3>开始闯关</h3>
+          </div>
+          <div class="step-body">
+            <p>在 CodeBuddy 终端中，用 cd 进入你第 1 步保存的项目路径：</p>
+            <code class="step-code-block">cd ~/Desktop/skill-hub && claude</code>
+            <div class="step-sub" style="margin-bottom:12px">路径换成你实际保存的位置，比如 <code style="background:rgba(0,0,0,0.06);padding:2px 6px;border-radius:4px;font-size:12px;">cd /Users/你的名字/Documents/skill-hub</code></div>
+            <p>进入 Claude Code 后，先让它熟悉项目：</p>
+            <code class="step-code-block">请熟悉一下这个项目，然后带我开始学习</code>
+            <p style="margin-top:12px">AI 会自动阅读项目文档，了解所有技能。准备好后，它会引导你输入：</p>
+            <code class="step-code-block">/learn</code>
+            <div class="step-sub">从这一刻起，AI 就是你的教练，带你完成 5 关闯关学习</div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -1513,32 +1603,32 @@ p {
       <div class="roadmap reveal">
         <div class="roadmap-node">
           <div class="roadmap-dot" style="background:#A78BFA">1</div>
-          <div class="roadmap-label">认识工具箱</div>
-          <div class="roadmap-desc">了解你将用到什么</div>
+          <div class="roadmap-label">认识项目</div>
+          <div class="roadmap-desc">了解目录结构和各部分职责</div>
         </div>
         <div class="roadmap-line"></div>
         <div class="roadmap-node">
           <div class="roadmap-dot" style="background:#8B5CF6">2</div>
-          <div class="roadmap-label">理解工作手册</div>
-          <div class="roadmap-desc">AI 是怎么读懂指令的</div>
+          <div class="roadmap-label">理解结构</div>
+          <div class="roadmap-desc">拆解 SKILL.md 的工作原理</div>
         </div>
         <div class="roadmap-line"></div>
         <div class="roadmap-node">
           <div class="roadmap-dot" style="background:#7C3AED">3</div>
-          <div class="roadmap-label">写出好文章</div>
-          <div class="roadmap-desc">让 AI 采访你并写作</div>
+          <div class="roadmap-label">实战写作</div>
+          <div class="roadmap-desc">亲手跑一次访谈写作</div>
         </div>
         <div class="roadmap-line"></div>
         <div class="roadmap-node">
           <div class="roadmap-dot" style="background:#6D28D9">4</div>
-          <div class="roadmap-label">AI 协作写作</div>
-          <div class="roadmap-desc">观察 4 个 AI 合作</div>
+          <div class="roadmap-label">团队模式</div>
+          <div class="roadmap-desc">观察 4 个 AI 协作 + 你做决策</div>
         </div>
         <div class="roadmap-line"></div>
         <div class="roadmap-node">
           <div class="roadmap-dot" style="background:#5B21B6">5</div>
-          <div class="roadmap-label">你的工作流</div>
-          <div class="roadmap-desc">创建专属 Skill 🎓</div>
+          <div class="roadmap-label">创建 Skill</div>
+          <div class="roadmap-desc">亲手做出你的毕业作品 🎓</div>
         </div>
       </div>
     </div>
@@ -2256,17 +2346,17 @@ p {
   <div class="hero">
     <div class="label reveal" style="color:var(--accent-5)">我的作品</div>
     <h1 class="reveal reveal-delay-1">你的毕业作品</h1>
-    <p class="subtitle reveal reveal-delay-2">完成第 5 关后，AI 会自动帮你把 Skill 可视化展示在这里。</p>
+    <p class="subtitle reveal reveal-delay-2">从零开始，到创建属于自己的 AI 工作流——这就是你的毕业作品。</p>
   </div>
 
   <!-- 引导说明 -->
   <div class="section section-alt">
     <div class="container">
       <div class="section-header">
-        <div class="label reveal" style="color:var(--accent-5)">怎么来到这里</div>
+        <div class="label reveal" style="color:var(--accent-5)">从闯关到作品</div>
         <h2 class="reveal">2 步，展示你的毕业作品</h2>
       </div>
-      <div class="steps-grid stagger">
+      <div class="steps-grid-2 stagger">
         <div class="step-card reveal" style="--i:0">
           <div class="step-num" style="background:var(--accent-5)">1</div>
           <h3>完成闯关</h3>
@@ -2276,14 +2366,11 @@ p {
         <div class="step-card reveal" style="--i:1">
           <div class="step-num" style="background:var(--accent-5)">2</div>
           <h3>AI 自动展示</h3>
-          <p>通关后 AI 自动读取你的 SKILL.md，生成可视化卡片写入此页面</p>
-          <code>learning/my-first-skill/SKILL.md</code>
+          <p>通关后 AI 自动读取你的 Skill，生成可视化卡片展示在下方</p>
+          <code>自动完成，无需操作</code>
         </div>
       </div>
-      <div class="callout reveal" style="margin-top:48px;border-left-color:var(--accent-5)">
-        <p><strong>参考文档</strong></p>
-        <p style="margin-top:8px">创建 Skill 时参考了 <code>templates/basic/SKILL.md</code>（极简模板）和 <code>templates/standard/SKILL.md</code>（标准模板）。第 5 关的完整引导在 <code>.claude/skills/learn/references/level-5-create-skill.md</code> 中。</p>
-      </div>
+      <p class="reveal" style="text-align:center;margin-top:48px;font-size:15px;color:var(--text-tertiary);max-width:560px;margin-left:auto;margin-right:auto;">以后想创建更多 Skill？项目里有现成模板，输入 /learn 也可以随时回顾。</p>
     </div>
   </div>
 
@@ -2292,18 +2379,109 @@ p {
     <div class="container">
       <div class="section-header">
         <div class="label reveal" style="color:var(--accent-5)">作品展示</div>
-        <h2 class="reveal">你的技能卡片</h2>
+        <h2 class="reveal">技能一览</h2>
       </div>
 
-      <!-- SKILL-SHOWCASE-START -->
-      <div class="achievement-cards" id="achievementCards">
-        <div class="empty-state reveal" style="text-align:center;padding:80px 40px;border:2px dashed var(--divider);border-radius:20px;background:var(--white);">
-          <div style="font-size:48px;margin-bottom:16px;opacity:0.4;">🎨</div>
-          <p style="font-size:18px;color:var(--text-secondary);margin-bottom:8px;">还没有作品</p>
-          <p style="font-size:14px;color:var(--text-tertiary);">完成第 5 关后，AI 会自动帮你生成可视化展示。</p>
+      <!-- 项目内置技能 -->
+      <p class="reveal" style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-1);margin-bottom:16px;">项目内置技能</p>
+      <div class="achievement-cards">
+        <div class="achievement-card reveal" style="--i:0">
+          <div class="achievement-card-header">
+            <span class="achievement-badge achievement-badge-builtin">内置</span>
+            <h3>learn</h3>
+          </div>
+          <p class="desc">闯关式交互教学。从认识项目结构到创建自己的 Skill，5 关逐步解锁，每关含自动验证和实战练习。</p>
+          <div class="achievement-tools">
+            <div class="achievement-tool-badges">
+              <span class="achievement-tool-badge">Read</span>
+              <span class="achievement-tool-badge">Write</span>
+              <span class="achievement-tool-badge">Edit</span>
+              <span class="achievement-tool-badge">Bash</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>7</strong>执行步骤</div>
+            <div class="stat"><strong>0</strong>边缘处理</div>
+            <div class="stat"><strong>4</strong>防护规则</div>
+          </div>
+        </div>
+
+        <div class="achievement-card reveal" style="--i:1">
+          <div class="achievement-card-header">
+            <span class="achievement-badge achievement-badge-builtin">内置</span>
+            <h3>interview-write</h3>
+          </div>
+          <p class="desc">深度访谈挖掘用户故事，结合参考风格写出高质量文章。流程：深度访谈 → 风格学习 → 写作 → 自动优化。</p>
+          <div class="achievement-tools">
+            <div class="achievement-tool-badges">
+              <span class="achievement-tool-badge">Read</span>
+              <span class="achievement-tool-badge">Write</span>
+              <span class="achievement-tool-badge">Edit</span>
+              <span class="achievement-tool-badge">Bash</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>7</strong>执行步骤</div>
+            <div class="stat"><strong>5</strong>边缘处理</div>
+            <div class="stat"><strong>6</strong>防护规则</div>
+          </div>
+        </div>
+
+        <div class="achievement-card reveal" style="--i:2">
+          <div class="achievement-card-header">
+            <span class="achievement-badge achievement-badge-builtin">内置</span>
+            <h3>interview-write-team</h3>
+          </div>
+          <p class="desc">多 Agent 协作写作。双写手对抗写作（悬念派 vs 洞察派）→ 6 维度评审 → Team Lead 综合终稿。</p>
+          <div class="achievement-tools">
+            <div class="achievement-tool-badges">
+              <span class="achievement-tool-badge">Read</span>
+              <span class="achievement-tool-badge">Write</span>
+              <span class="achievement-tool-badge">Edit</span>
+              <span class="achievement-tool-badge">Bash</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>5</strong>执行步骤</div>
+            <div class="stat"><strong>5</strong>边缘处理</div>
+            <div class="stat"><strong>5</strong>防护规则</div>
+          </div>
+        </div>
+
+        <div class="achievement-card reveal" style="--i:3">
+          <div class="achievement-card-header">
+            <span class="achievement-badge achievement-badge-builtin">内置</span>
+            <h3>build-course</h3>
+          </div>
+          <p class="desc">闯关课程生成器。输入学习主题，自动设计 5 关渐进课程、生成完整 Skill 文件、模拟通关审计。</p>
+          <div class="achievement-tools">
+            <div class="achievement-tool-badges">
+              <span class="achievement-tool-badge">Read</span>
+              <span class="achievement-tool-badge">Write</span>
+              <span class="achievement-tool-badge">Edit</span>
+              <span class="achievement-tool-badge">Bash</span>
+            </div>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>4</strong>执行步骤</div>
+            <div class="stat"><strong>4</strong>边缘处理</div>
+            <div class="stat"><strong>4</strong>防护规则</div>
+          </div>
         </div>
       </div>
-      <!-- SKILL-SHOWCASE-END -->
+
+      <!-- 用户作品区 -->
+      <div style="margin-top:48px;padding-top:48px;border-top:1px solid var(--divider);">
+        <p class="reveal" style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent-5);margin-bottom:16px;">你的作品</p>
+        <!-- SKILL-SHOWCASE-START -->
+        <div class="achievement-cards" id="achievementCards">
+          <div class="empty-state reveal" style="text-align:center;padding:48px 32px;border:2px dashed var(--divider);border-radius:16px;background:var(--white);">
+            <p style="font-size:16px;color:var(--text-secondary);margin-bottom:4px;">完成第 5 关后，你的 Skill 会展示在这里</p>
+            <p style="font-size:13px;color:var(--text-tertiary);">在终端输入 /learn 开始闯关</p>
+          </div>
+        </div>
+        <!-- SKILL-SHOWCASE-END -->
+      </div>
     </div>
   </div>
 </div>

@@ -19,6 +19,9 @@
 - 设计师
 - 运营
 - 市场/品牌
+- 数据分析师
+- HR / 人力资源
+- 项目经理
 
 记录用户选择的角色，后续步骤据此动态调整。
 
@@ -62,6 +65,33 @@
 - 营销报告格式重复
 - 社交媒体内容创意匮乏
 
+**数据分析师：**
+```
+你日常最头疼的事情是？
+```
+- 写分析报告太耗时，每次都要从数据讲到结论
+- SQL 写完还要手动整理成可读的表格和图表描述
+- 业务方提的数据需求描述模糊，要反复沟通
+- 定期报表格式重复，每周/月都是同样的模板
+
+**HR / 人力资源：**
+```
+你日常最头疼的事情是？
+```
+- JD 写了又写，每个岗位都要重新措辞
+- 面试评估报告格式不统一，写起来费时
+- 员工沟通话术需要因人而异，难以批量准备
+- 培训方案和课程大纲从零开始太慢
+
+**项目经理：**
+```
+你日常最头疼的事情是？
+```
+- 项目周报/月报写起来重复且耗时
+- 会议纪要整理费时，关键决策容易遗漏
+- 风险评估和问题跟踪缺少结构化模板
+- 跨部门沟通邮件要反复斟酌措辞
+
 ### Step 3: 给出定制 Skill 建议
 
 根据角色+痛点组合，给出 3 个针对性 Skill 建议。使用 AskUserQuestion 让用户选择。
@@ -69,7 +99,6 @@
 每个建议包含：
 - **Skill 名称**（小写连字符格式）
 - **一句话描述**：能干什么
-- **使用场景**：什么时候用
 - **调用示例**：`/skill-name 参数`
 
 #### 建议参考（根据角色+痛点组合选取）
@@ -153,6 +182,77 @@
 - `social-post` — 基于主题快速生成社交媒体帖子
 - `content-idea` — 围绕品牌调性生成内容创意
 - `trending-hook` — 结合热点生成品牌借势内容
+
+**数据分析师 + 分析报告：**
+- `analysis-report` — 基于数据摘要生成完整分析报告（背景→发现→建议）
+- `data-story` — 把数据表格转化为业务叙述，让非技术人也能看懂
+- `chart-narrator` — 为图表生成解读文字，指出趋势和异常点
+
+**数据分析师 + SQL/数据整理：**
+- `sql-doc` — 为 SQL 查询生成可读的说明文档和结果解读
+- `data-dictionary` — 基于表结构描述生成数据字典文档
+- `query-explain` — 用自然语言解释复杂 SQL 的逻辑和用途
+
+**数据分析师 + 需求沟通：**
+- `requirement-clarify` — 把模糊的业务需求转化为明确的数据需求文档
+- `metric-define` — 基于业务目标定义关键指标和计算口径
+- `question-reframe` — 把业务方的模糊问题拆解为可分析的具体问题
+
+**数据分析师 + 定期报表：**
+- `report-template` — 基于指标维度生成标准化报表模板
+- `weekly-insight` — 从周数据变化中提炼关键洞察和行动建议
+- `anomaly-brief` — 检测数据异常并生成异常说明简报
+
+**HR + JD 撰写：**
+- `jd-writer` — 基于岗位需求快速生成结构化 JD
+- `jd-polish` — 优化现有 JD 的措辞，提升吸引力
+- `role-compare` — 对比多个岗位的职责差异，避免 JD 同质化
+
+**HR + 面试评估：**
+- `interview-eval` — 基于面试记录生成结构化评估报告
+- `question-bank` — 根据岗位能力模型生成面试问题清单
+- `candidate-compare` — 多候选人能力矩阵对比，辅助决策
+
+**HR + 员工沟通：**
+- `hr-message` — 根据沟通场景生成得体的员工沟通话术
+- `onboard-guide` — 基于岗位生成新员工入职指引文档
+- `feedback-craft` — 为绩效反馈生成建设性沟通话术
+
+**HR + 培训方案：**
+- `training-plan` — 基于培训目标生成课程大纲和日程安排
+- `course-outline` — 输入主题生成结构化课程框架
+- `learning-path` — 为特定角色设计学习路径和资源推荐
+
+**项目经理 + 周报/月报：**
+- `project-report` — 基于项目进展要点生成周报/月报
+- `status-update` — 把零散的进度信息整理为结构化状态更新
+- `milestone-summary` — 里程碑完成后生成阶段总结报告
+
+**项目经理 + 会议纪要：**
+- `meeting-minutes` — 基于会议要点生成结构化会议纪要
+- `action-tracker` — 从会议讨论中提取行动项和负责人
+- `decision-log` — 记录关键决策的背景、方案对比和最终选择
+
+**项目经理 + 风险评估：**
+- `risk-register` — 基于项目描述识别潜在风险并生成风险登记表
+- `issue-brief` — 为项目问题生成简报（影响范围→原因→建议方案）
+- `contingency-plan` — 为已识别风险生成应急预案
+
+**项目经理 + 跨部门沟通：**
+- `stakeholder-email` — 根据沟通目的生成专业得体的邮件
+- `escalation-doc` — 生成问题升级文档（现状→影响→需要的支持）
+- `alignment-brief` — 为跨部门对齐会议生成背景简报
+
+### Step 3.5: Skill 设计的关键数据
+
+在用户选完 Skill 建议后、写 description 之前，分享几个关键数据帮助用户理解 Skill 设计的核心：
+
+> 在开始写之前，分享几个写好 Skill 的关键数据：
+>
+> - **description 的黄金长度：1-2 句话（50-100字）**— 太短 AI 不知道干什么，太长 AI 抓不住重点
+> - **执行步骤最佳数量：3-5 步** — 少于 3 步太简单（直接用 Claude 就行，不需要 Skill），多于 5 步容易跑偏
+> - **SKILL.md 推荐行数：50-150 行** — 这个项目里 interview-write 是 131 行，learn 是 172 行
+> - **一个好的 Skill 解决的是"重复性工作"** — 你每次都要做、每次流程差不多、但每次都要花时间的事
 
 ### Step 4: 亲手写 description
 
@@ -333,40 +433,31 @@ Skill 会按照你设计的流程执行：
 1. **读取** `./learning/my-first-skill/SKILL.md`
 2. **解析内容**：
    - YAML frontmatter：提取 `name`、`description`、`allowed-tools` 列表
-   - 正文：提取编号列表作为执行步骤、表格行作为边缘情况、Anti-Pattern 标题下的列表项
+   - 正文：统计编号列表的**数量**作为执行步骤数、表格行的**数量**作为边缘情况数、Anti-Pattern 标题下列表项的**数量**作为防护规则数
 3. **生成 HTML 卡片**，使用 index.html 中已有的 CSS 类，模板如下：
 
 ```html
 <div class="achievement-card">
-  <h3>{name}</h3>
+  <div class="achievement-card-header">
+    <span class="achievement-badge">SKILL</span>
+    <h3>{name}</h3>
+  </div>
   <p class="desc">{description}</p>
   <div class="achievement-tools">
-    <div class="achievement-section-label">可用工具</div>
     <div class="achievement-tool-badges">
       <span class="achievement-tool-badge">{每个工具一个 badge}</span>
     </div>
   </div>
-  <div class="achievement-flow">
-    <div class="achievement-section-label">执行流程</div>
-    <div class="achievement-step">
-      <span class="achievement-step-num">{序号}</span>
-      <span class="achievement-step-text">{步骤描述}</span>
-    </div>
-    <!-- 每个步骤一个 achievement-step -->
+  <div class="stats">
+    <div class="stat"><strong>{步骤数}</strong>执行步骤</div>
+    <div class="stat"><strong>{边缘情况数}</strong>边缘处理</div>
+    <div class="stat"><strong>{反模式数}</strong>防护规则</div>
   </div>
-  <!-- 如果有边缘情况 -->
-  <div class="achievement-edge">
-    <div class="achievement-section-label">边缘情况处理</div>
-    <div class="achievement-edge-item"><strong>{场景}</strong> → {处理方式}</div>
-  </div>
-  <!-- 如果有 anti-patterns -->
-  <div class="achievement-anti">
-    <div class="achievement-section-label">Anti-Patterns</div>
-    <div class="achievement-anti-item"><span class="x-mark">✕</span> {内容}</div>
-  </div>
-  <div class="congrats">🎉 恭喜！你创建了自己的第一个 Skill。</div>
+  <div class="congrats">你创建了自己的第一个 Skill</div>
 </div>
 ```
+
+> 注意：stats 中的数字只统计数量，不列出具体内容。如果某项数量为 0，对应的 stat 仍然显示（显示 0）。
 
 4. **用 Edit 工具**找到 `index.html` 中 `<!-- SKILL-SHOWCASE-START -->` 和 `<!-- SKILL-SHOWCASE-END -->` 之间的内容，替换为生成的卡片 HTML（放在 `<div class="achievement-cards">` 容器内）
 5. **告知用户**：

@@ -4,7 +4,7 @@ description: >-
   Skill-Hub 闯关式交互教学。从认识项目结构到创建自己的 Skill，5关逐步解锁。
   自动检测已掌握内容跳过。每关含自动验证和实战练习。
 argument-hint: "[关卡编号 1-5，不填则从头/断点续关]"
-allowed-tools: Read Write Edit Bash(node) Bash(claude) Bash(ls) Bash(mkdir) Bash(wc) Bash(grep) Bash(cat)
+allowed-tools: Read Write Edit Bash(ls) Bash(mkdir) Bash(wc) Bash(grep)
 ---
 
 # Skill-Hub 闯关教学
@@ -16,6 +16,9 @@ allowed-tools: Read Write Edit Bash(node) Bash(claude) Bash(ls) Bash(mkdir) Bash
 - 验证通过后显示通关提示，自动进入下一关
 - 用户卡住时给出具体提示，不要只说"试试看"
 - 每关通过后自动更新进度报告
+- **输出控制**：每次输出控制在 **15 行以内**（不含代码块和分隔线），超过时拆成多次输出，中间用 AskUserQuestion 过渡
+- **大块内容按需展示**：ASCII 框图、表格等大块内容前，先用一句话概括，让用户选择是否展开查看
+- 不要连续展示超过 2 个代码块/分隔线框
 
 ## 概述
 
@@ -63,11 +66,12 @@ allowed-tools: Read Write Edit Bash(node) Bash(claude) Bash(ls) Bash(mkdir) Bash
 
 每关验证通过后，必须执行以下步骤，然后再进入下一关：
 
-1. 显示学习要点总结（3-5 条，用 ✅ 列表）
-2. 用 ASCII 流程图展示这一关背后的运行原理
-3. 具体总结内容见 [summaries.md](references/summaries.md)
-4. **关卡过渡**（第5关除外）：展示完总结后，使用 AskUserQuestion 询问：
+1. 显示简短通关提示（1行）
+2. **验证选择题**：用 AskUserQuestion 出 1 道选择题，考察本关核心知识点（题目见 [summaries.md](references/summaries.md) 各关的验证题）。答对给正反馈，答错给出正确答案和简短解释。**第2关除外**（它自带 3 道验证题，不再重复出题）
+3. 显示学习要点（2-3 条，用 ✅ 列表）
+4. **关卡过渡**（第5关除外）：使用 AskUserQuestion 询问：
    - "进入下一关"
+   - "看看这一关的原理图"（展示 ASCII 图后再问一次是否继续）
    - "休息一下，稍后继续（进度已保存）"
    如果用户选择休息，更新进度后结束本次会话。
 

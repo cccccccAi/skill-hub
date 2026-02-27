@@ -1,18 +1,28 @@
 # 每关通关总结
 
-每关验证通过后，展示对应的学习要点和原理图，然后再进入下一关。
+每关验证通过后，按照通关总结协议执行：通关提示 → 验证题 → 要点 → 过渡选择（含可选原理图）。
 
 ---
 
 ## 第1关：认识项目
 
+### 验证题
+
+「CLAUDE.md 的作用是什么？」
+- 项目说明书，Claude Code 启动时自动读取 ← 正确
+- 代码配置文件
+- 用户手册
+- 日志文件
+
+答对反馈：「没错！CLAUDE.md 就是项目的说明书，Claude Code 每次启动都会读它。」
+答错反馈：「CLAUDE.md 是项目的入口说明书，Claude Code 每次启动都会自动读取，告诉 AI 这个项目是什么、有哪些 Skill。」
+
 ### 学习要点
 
 ✅ skill-hub 目录结构：skills 定义、writing 工作空间、learning 学习空间
-✅ 各目录的职责分工
 ✅ CLAUDE.md 是项目的入口说明书，Claude Code 每次启动都会读取
 
-### 背后的原理
+### 原理图（用户选择查看时展示）
 
 ```
 项目结构的设计逻辑：
@@ -28,14 +38,17 @@
 
 ## 第2关：理解结构
 
+### 验证题
+
+无（第2关自带 3 道验证题，不再重复）
+
 ### 学习要点
 
-✅ SKILL.md 由两部分组成：frontmatter（元数据）+ 正文（执行流程）
-✅ name 决定调用方式（/name），必须是小写+连字符
-✅ allowed-tools 控制 Skill 的权限边界
+✅ SKILL.md = frontmatter（元数据）+ 正文（执行流程）
+✅ name 决定调用方式（/name），allowed-tools 控制权限边界
 ✅ 复杂内容拆到 references/ 子目录
 
-### 背后的原理
+### 原理图（用户选择查看时展示）
 
 ```
 当你输入 /interview-write 时，发生了什么：
@@ -57,14 +70,23 @@
 
 ## 第3关：实战写作
 
+### 验证题
+
+「Skill 是怎么学习你的写作风格的？」
+- 读取 writing/examples/ 中的参考文章 ← 正确
+- 联网搜索你的历史文章
+- 你手动设置风格参数
+- 从 CLAUDE.md 中读取
+
+答对反馈：「对！examples/ 里放你喜欢的文章，AI 就会学习那种风格来写作。」
+答错反馈：「AI 通过读取 writing/examples/ 里的参考文章来学习写作风格——放进去你喜欢的文章，下次写作就会用那种风格。」
+
 ### 学习要点
 
-✅ Skill 的完整生命周期：调用 → 执行 → 产出文件
-✅ 访谈是素材收集过程，写作是素材转化过程
+✅ Skill 完整生命周期：调用 → 执行 → 产出文件
 ✅ 风格参考（examples/）让 AI 学习特定写作风格
-✅ 输出文件保存在 writing/output/
 
-### 背后的原理
+### 原理图（用户选择查看时展示）
 
 ```
 /interview-write 的执行流程：
@@ -95,15 +117,23 @@
 
 ## 第4关：团队模式
 
+### 验证题
+
+「团队模式和单人模式最大的区别是？」
+- Agent 数量多
+- 不同视角对抗后融合，质量更高 ← 正确
+- 速度更快
+- 不需要访谈
+
+答对反馈：「没错！团队模式的核心价值是多视角碰撞，不是简单的人多力量大。」
+答错反馈：「团队模式的价值在于不同视角的对抗和融合——两个写手用不同风格写，Critic 评审后综合优点，产出比单一视角更有深度。」
+
 ### 学习要点
 
-✅ 单人模式 vs 团队模式的核心差异
-✅ 多 Agent 分工：Interviewer / Writer A / Writer B / Critic
-✅ 对抗式写作的价值：不同视角碰撞出更好的内容
-✅ Critic 评审确保质量，Team Lead 综合终稿取各家之长
-✅ 想体验完整团队模式，可运行 `/interview-write-team`
+✅ 单人 vs 团队：多视角对抗后融合，质量更高
+✅ 4 Agent 分工：Interviewer / Writer A / Writer B / Critic
 
-### 背后的原理
+### 原理图（用户选择查看时展示）
 
 ```
 单人模式                         团队模式
@@ -124,14 +154,23 @@
 
 ## 第5关：创建 Skill
 
+### 验证题
+
+「创建 Skill 后，放在哪个目录才能被 /name 调用？」
+- .claude/skills/name/ ← 正确
+- learning/
+- templates/
+- writing/
+
+答对反馈：「完全正确！.claude/skills/ 是 Claude Code 扫描技能的地方。」
+答错反馈：「Skill 需要放在 .claude/skills/你的skill名/ 目录下，Claude Code 启动时会自动扫描这个目录。」
+
 ### 学习要点
 
-✅ 从零创建 Skill 的完整流程
-✅ frontmatter 各字段的作用和规范
-✅ 正文如何定义执行流程
-✅ 如何让 Skill 可被 /name 调用
+✅ 创建 Skill 的完整流程：确定需求 → 写 SKILL.md → 放到 .claude/skills/
+✅ frontmatter 三要素：name + description + allowed-tools
 
-### 背后的原理
+### 原理图（用户选择查看时展示）
 
 ```
 创建一个 Skill 只需要 3 步：
