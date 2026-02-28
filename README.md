@@ -1,89 +1,47 @@
-# Skill Hub — Skill 学习训练营
+# Skill Hub — AI 技能工坊
 
-通过 5 关闯关教学，从零学会创建和使用 [Claude Code Skills](https://code.claude.com/docs/en/skills)。内含实战案例（访谈写作）和 Skill 模板。
+产研团队的 AI 协作工具集，覆盖产品、设计、写作，内含闯关教学。
 
 基于 [Agent Skills](https://agentskills.io) 开放标准，通过 Claude Code 驱动。
 
 ## 技能索引
 
-| 技能 | 说明 | 调用方式 |
+| 技能 | 说明 | 适合角色 |
 |------|------|---------|
-| **learn** | 闯关教学：5关从入门到创建自己的 Skill | `/learn [关卡编号]` |
-| **build-course** | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 | `/build-course [学习主题]` |
-| **interview-write** | 教学案例：深度访谈 → 风格学习 → 写作 → 自动优化 | `/interview-write [主题]` |
-| **interview-write-team** | 教学案例：访谈 → 双写手对抗 → 评审 → 综合终稿 | `/interview-write-team [主题]` |
-| **ui-ux-design** | 设计智能：需求分析 → BM25 搜索 → 设计系统生成 → 实现指南 | `/ui-ux-design [设计需求]` |
-| **learn-design** | 设计教学：5关从认识工具到完成设计项目 | `/learn-design [关卡编号]` |
+| `/pm [需求]` | 产品经理工具箱：写 PRD、用研分析、汇报、路线图、竞品分析 | 产品经理 |
+| `/ui-ux-design [需求]` | 设计系统生成：BM25 搜索 → 配色/字体/风格方案 | 设计师 |
+| `/design-review [设计稿]` | 设计评审：评审反馈、开发交付、无障碍审查、UX 文案 | 设计师 |
+| `/interview-write [主题]` | 访谈写作：深度访谈 → 风格学习 → 写作 → 自动优化 | 运营/市场 |
+| `/interview-write-team [主题]` | 团队写作：访谈 → 双写手对抗 → 评审 → 综合终稿 | 运营/市场 |
+| `/learn [关卡]` | 闯关教学：5 关从入门到创建自己的 Skill | 全员 |
+| `/learn-design [关卡]` | 设计教学：5 关从认识工具到完成设计项目 | 设计师 |
+| `/build-course [主题]` | 课程生成器：输入主题 → 自动生成闯关课程 | 培训负责人 |
 
 ## 快速开始
 
-**第一步：用浏览器打开项目中的 [`index.html`](index.html)**，了解项目全貌和详细安装教程。
+**第一步：** 用浏览器打开项目中的 [`index.html`](index.html)，了解项目全貌。
 
-新手也可以看 [`learning/getting-started.md`](learning/getting-started.md)（入门手册），只需 3 步，其余交给 AI。
-
-技术用户可以直接：
+新手也可以看 [`learning/getting-started.md`](learning/getting-started.md)（入门手册），只需 3 步。
 
 ```bash
 git clone https://github.com/cccccccAi/skill-hub.git
 cd skill-hub
 claude
 
-# 开始闯关教学（推荐新手从这里开始）
-# /learn
+# 产品经理
+/pm 写一个会员系统的 PRD
 
-# 生成一套新的学习课程
-# /build-course MCP Server 教学
+# 设计师
+/ui-ux-design SaaS 仪表盘 深色模式
+/design-review 评审我们的登录页设计
 
-# 单人写作
-# /interview-write 我最近的创业故事
+# 运营
+/interview-write 我最近的创业故事
 
-# 团队写作
-# /interview-write-team AI时代的焦虑
-
-# 设计系统生成
-# /ui-ux-design SaaS 仪表盘 深色模式
+# 学习
+/learn
 ```
 
-## 项目结构
+## 详细文档
 
-```
-skill-hub/
-├── .claude/skills/              # 所有技能定义
-│   ├── learn/                   # 核心：闯关式交互教学（5关）
-│   ├── build-course/            # 课程生成器（自动设计+生成闯关课程）
-│   ├── interview-write/         # 教学案例：单人访谈写作
-│   ├── interview-write-team/    # 教学案例：团队对抗写作
-│   ├── ui-ux-design/            # 设计智能：UI/UX 设计系统生成
-│   └── learn-design/            # 设计教学：闯关式设计培训├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
-├── design/                      # 设计工作空间
-│   ├── engine/                  # BM25 搜索引擎 + CSV 数据库
-│   └── output/                  # 设计系统输出（不入 git）
-├── templates/                   # Skill 模板骨架
-│   ├── basic/                   # 最简模板（~15行）
-│   └── standard/                # 标准模板（~35行）
-├── writing/                     # 写作工作空间
-│   ├── examples/                # 风格参考文章（可替换为你自己的）
-│   ├── drafts/                  # 中间产物（不入 git）
-│   └── output/                  # 最终产出（不入 git）
-├── learning/                    # 学习工作空间
-│   ├── getting-started.md       # 入门手册（新手看这个）
-│   ├── setup-guide.md           # 完整安装指南（技术参考）
-│   ├── official-skill-guide.md  # 官方 Skill 搭建指南
-│   ├── progress.md              # 闯关进度（不入 git）
-│   └── my-first-skill/          # 学员作品（不入 git）
-└── CLAUDE.md
-```
-
-## 自定义风格案例
-
-`writing/examples/` 存放写作风格参考文章。写作 Skill 会从中学习风格（节奏、金句密度、开场方式等）。
-
-替换为你自己喜欢的文章即可，支持 `.md` 格式，建议 3-5 篇。修改后立即生效。
-
-## 创建自己的 Skill
-
-从模板开始：
-- `templates/basic/SKILL.md` — 最简骨架，快速上手
-- `templates/standard/SKILL.md` — 完整模板，含 references/、Anti-Pattern 等进阶结构
-
-或者用 `/build-course` 自动生成一套完整的闯关教学课程。
+项目配置、技能说明、模板使用等详见 [`CLAUDE.md`](CLAUDE.md)。

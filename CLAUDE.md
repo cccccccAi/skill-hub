@@ -1,33 +1,58 @@
-# Skill 学习训练营
+# AI 技能工坊
 
-通过 5 关闯关教学，从零学会创建和使用 Claude Code Skills。内含实战案例（访谈写作）和 Skill 模板。
+产研团队的 AI 协作工具集，覆盖产品、设计、写作，内含闯关教学。
 
 ## 新用户引导
 
 > **AI IDE（如 CodeBuddy）读取到此文件时：** 如果用户刚克隆了这个项目、还没有安装 Claude Code，请引导用户先按照 `learning/getting-started.md` 完成环境安装（只需 3 步）。安装完成后，指导用户在终端中输入 `claude` 启动 Claude Code。
 
-> **Claude Code 启动后读取到此文件时：** 先确认 `.claude/skills/` 目录下的技能文件完整（应包含 learn、interview-write、interview-write-team、build-course、ui-ux-design、learn-design 六个目录）。然后提示用户：「欢迎来到 Skill-Hub！输入 `/learn` 开始闯关学习。」
+> **Claude Code 启动后读取到此文件时：** 先确认 `.claude/skills/` 目录下的技能文件完整（应包含 pm、ui-ux-design、design-review、interview-write、interview-write-team、learn、learn-design、build-course 八个目录）。然后提示用户：「欢迎来到 AI 技能工坊！输入技能命令开始使用，或输入 `/learn` 开始闯关学习。」
+
+## 按角色推荐
+
+| 你的角色 | 推荐技能 | 一句话说明 |
+|---------|---------|----------|
+| 产品经理 | `/pm` | 写 PRD、用研分析、做竞品分析、排路线图、写汇报 |
+| 设计师 | `/ui-ux-design` + `/design-review` | 生成设计系统 + 评审交付 |
+| 运营/市场 | `/interview-write` | 深度访谈挖故事 → 写文章 |
+| 想学 AI | `/learn` | 5 关闯关，从零学会创建 Skill |
+| 想学设计 | `/learn-design` | 5 关设计闯关，无需编程基础 |
+
+## 技能说明
+
+| 技能 | 说明 |
+|------|------|
+| `/pm [需求描述]` | 产品工具箱：写 PRD、用研分析、写汇报、排路线图、竞品分析、数据复盘 |
+| `/ui-ux-design [设计需求]` | 设计生成：需求分析 → BM25 搜索 → 设计系统（配色/字体/风格） |
+| `/design-review [设计稿描述]` | 设计评审：评审反馈、开发交付文档、WCAG 无障碍审查、UX 文案 |
+| `/interview-write [主题]` | 访谈写作：深度访谈 → 风格学习 → 写作 → 自动优化 |
+| `/interview-write-team [主题]` | 团队写作：访谈 → 双写手对抗 → 评审 → 综合终稿 |
+| `/learn [关卡编号]` | 闯关教学：5关从入门到创建自己的 Skill |
+| `/learn-design [关卡编号]` | 设计教学：5关从认识工具到完成设计项目 |
+| `/build-course [学习主题]` | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 |
 
 ## 项目结构
 
 ```
 skill-hub/
 ├── .claude/skills/              # 所有技能定义
-│   ├── learn/                   # 核心：闯关式交互教学（/learn）
-│   ├── build-course/            # 课程生成器（/build-course）
-│   ├── interview-write/         # 教学案例：单人访谈写作（/interview-write）
-│   ├── interview-write-team/    # 教学案例：团队对抗写作（/interview-write-team）
-│   ├── ui-ux-design/            # 设计智能：UI/UX 设计系统生成（/ui-ux-design）
-│   └── learn-design/            # 设计教学：闯关式设计培训（/learn-design）├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
+│   ├── pm/                      # 产品工具箱（/pm）
+│   ├── ui-ux-design/            # 设计系统生成（/ui-ux-design）
+│   ├── design-review/           # 设计评审（/design-review）
+│   ├── interview-write/         # 访谈写作（/interview-write）
+│   ├── interview-write-team/    # 团队对抗写作（/interview-write-team）
+│   ├── learn/                   # 闯关教学（/learn）
+│   ├── learn-design/            # 设计闯关教学（/learn-design）
+│   └── build-course/            # 课程生成器（/build-course）
+├── design/                      # 设计工作空间
+│   ├── engine/                  # BM25 搜索引擎 + CSV 数据库
+│   │   ├── scripts/             # Python 搜索脚本
+│   │   └── data/                # 68 风格 + 96 配色 + 57 字体 + 13 技术栈
+│   └── output/                  # 设计系统输出（不入 git）
 ├── writing/                     # 写作工作空间
 │   ├── examples/                # 风格参考文章（可替换为你自己的）
 │   ├── drafts/                  # 中间产物（不入 git）
 │   └── output/                  # 最终产出（不入 git）
-├── design/                      # 设计工作空间
-│   ├── engine/                  # BM25 搜索引擎 + CSV 数据库
-│   │   ├── scripts/             # Python 搜索脚本（core/search/design_system）
-│   │   └── data/                # 68 风格 + 96 配色 + 57 字体 + 13 技术栈
-│   └── output/                  # 设计系统输出（不入 git）
 ├── templates/                   # Skill 模板骨架
 │   ├── basic/                   # 最简模板（~15行）
 │   └── standard/                # 标准模板（~35行，含进阶结构）
@@ -36,23 +61,13 @@ skill-hub/
 │   ├── setup-guide.md           # 完整安装指南（技术参考）
 │   ├── progress.md              # 闯关进度（不入 git）
 │   └── my-first-skill/          # 学员作品（不入 git）
+├── tools/                       # 工具包（已迁移到独立仓库）
 └── CLAUDE.md
 ```
 
 ## 路径约定
 
 所有路径使用相对路径（相对于项目根目录）。写作相关路径以 `./writing/` 为前缀，设计相关路径以 `./design/` 为前缀。
-
-## 技能说明
-
-| 技能 | 说明 |
-|------|------|
-| `/learn [关卡编号]` | 闯关教学：5关从入门到创建自己的 Skill |
-| `/interview-write [主题]` | 教学案例：访谈 → 写作 → 自动优化 |
-| `/interview-write-team [主题]` | 教学案例：访谈 → 双写手对抗 → 评审 → 综合终稿 |
-| `/build-course [学习主题]` | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 |
-| `/ui-ux-design [设计需求]` | 设计智能：需求分析 → BM25 搜索 → 设计系统生成 → 实现指南 |
-| `/learn-design [关卡编号]` | 设计教学：5关从认识工具到完成设计项目 |
 
 ## 写作风格规范
 
@@ -64,7 +79,7 @@ skill-hub/
 
 ## 自定义风格案例
 
-`writing/examples/` 目录存放写作风格参考文章。这些是项目作者的公众号文章，写作 Skill 会从中学习写作风格（节奏、金句密度、开场方式等）。
+`writing/examples/` 目录存放写作风格参考文章。写作 Skill 会从中学习写作风格（节奏、金句密度、开场方式等）。
 
 **你应该替换为自己喜欢的文章：**
 - 支持 `.md` 格式
