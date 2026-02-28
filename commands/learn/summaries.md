@@ -47,7 +47,7 @@
 
 ✅ SKILL.md = frontmatter（元数据）+ 正文（执行流程）
 ✅ name 决定调用方式（/name），allowed-tools 控制权限边界
-✅ 复杂内容可拆到独立文件（references/ 子目录或 commands/ 目录）
+✅ 复杂内容可拆成独立文件，主文件用链接引用
 
 ### 原理图（用户选择查看时展示）
 

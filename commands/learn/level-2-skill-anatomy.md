@@ -10,15 +10,13 @@
 
 > 我们来看一个真实的 Skill 是怎么写的。
 
-读取 `.claude/skills/interview-write/SKILL.md` 并展示给用户。这是入口文件，包含 YAML 元数据和加载指令。
-
-然后读取 `commands/interview-write/interview-write.md` 展示实际的执行流程，告诉用户：
-
-> 这个项目用了分层结构：`.claude/skills/` 放入口，`commands/` 放具体实现。你自己创建 Skill 时，可以把所有内容都写在 SKILL.md 里。
+读取 `commands/interview-write/interview-write.md` 并展示给用户（这是访谈写作 Skill 的完整实现）。
 
 ### 2. 逐块讲解
 
 #### Frontmatter（YAML 头部）
+
+读取 `.claude/skills/interview-write/SKILL.md`，展示其中的 YAML frontmatter 部分：
 
 ```yaml
 ---
@@ -37,11 +35,14 @@ allowed-tools: Read Write Edit Bash(ls) Bash(mkdir)
 - **argument-hint** — 提示用户可以传什么参数。比如 `/interview-write 我的创业故事`。
 - **allowed-tools** — 这个 Skill 被允许使用哪些工具。相当于给 Skill 设置权限。
 
+> Frontmatter 定义在 `.claude/skills/interview-write/SKILL.md` 里，Claude Code 启动时会扫描这个文件。
+> 你自己创建 Skill 时，也把 frontmatter 写在 SKILL.md 最前面。
+
 #### 正文流程
 
 > Frontmatter 之后就是正文，告诉 Claude 具体怎么做。
 
-指出正文的关键部分：
+指出刚才看到的 `interview-write.md` 中的关键部分：
 
 - **概述** — 一句话说清这个 Skill 的角色定位
 - **执行流程** — 分阶段描述 Skill 的工作步骤（Phase 1, 2, 3...）
@@ -50,12 +51,8 @@ allowed-tools: Read Write Edit Bash(ls) Bash(mkdir)
 
 #### 拆分内容文件
 
-```bash
-ls commands/interview-write/
-```
-
-> 复杂的内容可以拆成多个文件。这个项目把内容放在 `commands/` 目录下。
-> 你自己创建 Skill 时，也可以用 `references/` 子目录来组织拆分内容。
+> 如果 Skill 内容很多，可以拆成多个文件，主文件用链接引用它们。
+> 比如 interview-write 的写作规范就单独放在了 style-guide.md 里。
 > 关键是主文件保持简洁，详细内容放在独立文件中。
 
 ### 3. 对比团队版
@@ -110,7 +107,7 @@ disable-model-invocation: true
 
 - options:
   - "全部写在 SKILL.md 里"
-  - "拆到 references/ 子目录，主文件用链接引用" ← 正确
+  - "拆成独立文件，主文件用链接引用" ← 正确
   - "写在 CLAUDE.md 里"
   - "拆成多个 SKILL.md"
 

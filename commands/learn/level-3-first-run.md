@@ -49,7 +49,7 @@ ls ./writing/output/ | wc -l
 
 **不要让用户退出再手动输入命令。** 选完主题后，直接在当前会话中执行访谈和写作。
 
-1. 读取 `../interview-write/style-guide.md` 获取写作规范
+1. 读取 `commands/interview-write/style-guide.md` 获取写作规范
 2. 按以下流程执行（**不需要读取 interview-write 的 SKILL.md**，用下方的内联规则即可）：
    - 访谈：按下方的教学模式访谈规则执行，实时保存到 `drafts/interview-transcript.md`
    - 写作：读取 `./writing/examples/` 学习风格 → 写作 → 自动优化 → 保存到 `writing/output/` 并展示
