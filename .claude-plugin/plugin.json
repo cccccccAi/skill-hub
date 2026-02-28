@@ -1,0 +1,27 @@
+{
+  "name": "skill-hub",
+  "version": "2.0.0",
+  "description": "产研团队 AI 协作工具集。覆盖产品、设计、写作，内含闯关教学。",
+  "author": {
+    "name": "cccccccAi"
+  },
+  "homepage": "https://github.com/cccccccAi/skill-hub",
+  "categories": ["productivity", "design", "writing", "education"],
+  "commands": [
+    "commands/pm/pm.md",
+    "commands/ui-ux-design/ui-ux-design.md",
+    "commands/design-review/design-review.md",
+    "commands/interview-write/interview-write.md",
+    "commands/interview-write-team/interview-write-team.md",
+    "commands/learn/learn.md",
+    "commands/learn-design/learn-design.md",
+    "commands/build-course/build-course.md"
+  ],
+  "skills": ["skills/project-context.md", "skills/writing-style.md"],
+  "agents": [
+    "agents/interviewer.md",
+    "agents/writer-suspense.md",
+    "agents/writer-insight.md",
+    "agents/critic.md"
+  ]
+}
