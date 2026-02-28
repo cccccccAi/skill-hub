@@ -6,7 +6,7 @@
 
 > **AI IDE（如 CodeBuddy）读取到此文件时：** 如果用户刚克隆了这个项目、还没有安装 Claude Code，请引导用户先按照 `learning/getting-started.md` 完成环境安装（只需 3 步）。安装完成后，指导用户在终端中输入 `claude` 启动 Claude Code。
 
-> **Claude Code 启动后读取到此文件时：** 先确认 `.claude/skills/` 目录下的技能文件完整（应包含 learn、interview-write、interview-write-team、build-course 四个目录）。然后提示用户：「欢迎来到 Skill-Hub！输入 `/learn` 开始闯关学习。」
+> **Claude Code 启动后读取到此文件时：** 先确认 `.claude/skills/` 目录下的技能文件完整（应包含 learn、interview-write、interview-write-team、build-course、ui-ux-design、learn-design 六个目录）。然后提示用户：「欢迎来到 Skill-Hub！输入 `/learn` 开始闯关学习。」
 
 ## 项目结构
 
@@ -16,12 +16,18 @@ skill-hub/
 │   ├── learn/                   # 核心：闯关式交互教学（/learn）
 │   ├── build-course/            # 课程生成器（/build-course）
 │   ├── interview-write/         # 教学案例：单人访谈写作（/interview-write）
-│   └── interview-write-team/    # 教学案例：团队对抗写作（/interview-write-team）
-├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
+│   ├── interview-write-team/    # 教学案例：团队对抗写作（/interview-write-team）
+│   ├── ui-ux-design/            # 设计智能：UI/UX 设计系统生成（/ui-ux-design）
+│   └── learn-design/            # 设计教学：闯关式设计培训（/learn-design）├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
 ├── writing/                     # 写作工作空间
 │   ├── examples/                # 风格参考文章（可替换为你自己的）
 │   ├── drafts/                  # 中间产物（不入 git）
 │   └── output/                  # 最终产出（不入 git）
+├── design/                      # 设计工作空间
+│   ├── engine/                  # BM25 搜索引擎 + CSV 数据库
+│   │   ├── scripts/             # Python 搜索脚本（core/search/design_system）
+│   │   └── data/                # 68 风格 + 96 配色 + 57 字体 + 13 技术栈
+│   └── output/                  # 设计系统输出（不入 git）
 ├── templates/                   # Skill 模板骨架
 │   ├── basic/                   # 最简模板（~15行）
 │   └── standard/                # 标准模板（~35行，含进阶结构）
@@ -35,7 +41,7 @@ skill-hub/
 
 ## 路径约定
 
-所有路径使用相对路径（相对于项目根目录）。写作相关路径以 `./writing/` 为前缀。
+所有路径使用相对路径（相对于项目根目录）。写作相关路径以 `./writing/` 为前缀，设计相关路径以 `./design/` 为前缀。
 
 ## 技能说明
 
@@ -45,6 +51,8 @@ skill-hub/
 | `/interview-write [主题]` | 教学案例：访谈 → 写作 → 自动优化 |
 | `/interview-write-team [主题]` | 教学案例：访谈 → 双写手对抗 → 评审 → 综合终稿 |
 | `/build-course [学习主题]` | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 |
+| `/ui-ux-design [设计需求]` | 设计智能：需求分析 → BM25 搜索 → 设计系统生成 → 实现指南 |
+| `/learn-design [关卡编号]` | 设计教学：5关从认识工具到完成设计项目 |
 
 ## 写作风格规范
 

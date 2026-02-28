@@ -12,6 +12,8 @@
 | **build-course** | 课程生成器：输入主题 → 设计5关课程 → 生成 Skill 文件 → 模拟审计 | `/build-course [学习主题]` |
 | **interview-write** | 教学案例：深度访谈 → 风格学习 → 写作 → 自动优化 | `/interview-write [主题]` |
 | **interview-write-team** | 教学案例：访谈 → 双写手对抗 → 评审 → 综合终稿 | `/interview-write-team [主题]` |
+| **ui-ux-design** | 设计智能：需求分析 → BM25 搜索 → 设计系统生成 → 实现指南 | `/ui-ux-design [设计需求]` |
+| **learn-design** | 设计教学：5关从认识工具到完成设计项目 | `/learn-design [关卡编号]` |
 
 ## 快速开始
 
@@ -37,6 +39,9 @@ claude
 
 # 团队写作
 # /interview-write-team AI时代的焦虑
+
+# 设计系统生成
+# /ui-ux-design SaaS 仪表盘 深色模式
 ```
 
 ## 项目结构
@@ -47,8 +52,12 @@ skill-hub/
 │   ├── learn/                   # 核心：闯关式交互教学（5关）
 │   ├── build-course/            # 课程生成器（自动设计+生成闯关课程）
 │   ├── interview-write/         # 教学案例：单人访谈写作
-│   └── interview-write-team/    # 教学案例：团队对抗写作
-├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
+│   ├── interview-write-team/    # 教学案例：团队对抗写作
+│   ├── ui-ux-design/            # 设计智能：UI/UX 设计系统生成
+│   └── learn-design/            # 设计教学：闯关式设计培训├── tools/                       # 预置安装包（cc-switch、Windows Terminal）
+├── design/                      # 设计工作空间
+│   ├── engine/                  # BM25 搜索引擎 + CSV 数据库
+│   └── output/                  # 设计系统输出（不入 git）
 ├── templates/                   # Skill 模板骨架
 │   ├── basic/                   # 最简模板（~15行）
 │   └── standard/                # 标准模板（~35行）
