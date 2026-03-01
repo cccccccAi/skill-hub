@@ -69,6 +69,7 @@ skill-hub/
 │   ├── interview-write/         # 访谈写作（/interview-write）
 │   ├── interview-write-team/    # 团队对抗写作（/interview-write-team）
 │   ├── learn/                   # 闯关教学（/learn）
+│   ├── learn-advanced/          # 进阶闯关教学（/learn-advanced）
 │   ├── learn-design/            # 设计闯关教学（/learn-design）
 │   ├── build-course/            # 课程生成器（/build-course）
 │   └── setup-env/               # 环境配置向导（/setup-env）
